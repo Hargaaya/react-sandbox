@@ -24,10 +24,27 @@ function App() {
     },
   ]);
 
+  //Delete Task
+  const deleteTask = (id) => {
+    console.log("deleted: " + id);
+    setTasks(tasks.filter((task) => task.id !== id));
+  };
+
+  const onDoubleClick = (id) => {
+    console.log("Double Clicked Task #" + id);
+    tasks.map((task) =>
+      task.id === id ? { ...task, complete: !task.complete } : task
+    );
+  };
+
   return (
     <div className="container max-w-md flex flex-col border-4 border-purple-200 mx-auto mt-10 rounded-lg bg-purple-500 p-4 text-white">
       <Header title="Task App" buttonText="Add"></Header>
-      <Tasks tasks={tasks}></Tasks>
+      <Tasks
+        tasks={tasks}
+        onDelete={deleteTask}
+        onDoubleClick={onDoubleClick}
+      ></Tasks>
     </div>
   );
 }
