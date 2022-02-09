@@ -6,6 +6,7 @@ module.exports = {
     "./src/components/Button.js",
     "./src/components/Tasks.js",
     "./src/components/Task.js",
+    "./src/components/AddTask.js",
   ],
   theme: {
     extend: {},

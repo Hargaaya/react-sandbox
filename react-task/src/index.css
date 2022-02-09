@@ -16,3 +16,13 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+#text,
+#title {
+  @apply rounded-md bg-purple-700 p-2 shadow-inner;
+}
+
+#title:focus,
+#text:focus {
+  @apply border-none outline-none bg-purple-800;
+}
