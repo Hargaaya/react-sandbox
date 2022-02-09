@@ -4,20 +4,15 @@ import { useState } from "react";
 
 const key = "5aea0ff31a0b778fdf225480e5f7002f";
 
-function location() {
-  const position = navigator.geolocation.getCurrentPosition(
-    (pos) => {
-      return pos;
-    },
-    (err) => alert("Enable position for site")
+function location(callback) {
+  navigator.geolocation.getCurrentPosition((p) =>
+    callback({ lon: p.coords.longitude, lat: p.coords.latitude })
   );
-  console.log(position);
 }
 
 async function getWeather(pos) {
-  let lat = Math.round(pos.coords.latitude * 100) / 100;
-  let lon = Math.round(pos.coords.longitude * 100) / 100;
-  console.log(lat);
+  let lat = Math.round(pos.lat * 100) / 100;
+  let lon = Math.round(pos.lon * 100) / 100;
 
   let res = await fetch(
     `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&appid=${key}`
@@ -25,11 +20,13 @@ async function getWeather(pos) {
 
   let data = await res.json();
 
-  console.log("data: ");
-  console.log(data);
+  let now = new Date(Date.now());
+
+  console.log("date: " + now.toDateString());
+  console.log(data.current.dt);
 }
 
-location();
+location(getWeather);
 
 function App() {
   return (
