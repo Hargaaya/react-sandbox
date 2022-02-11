@@ -15,3 +15,25 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+#username,
+#password {
+  @apply my-2 select-none rounded-sm bg-inherit p-1 font-semibold outline-none hover:cursor-default;
+}
+
+#login input::placeholder {
+  @apply text-center text-black;
+}
+
+#login label {
+  @apply select-none rounded-md border-black bg-white p-2 shadow-inner hover:cursor-text;
+}
+
+#clearButton,
+#loginButton {
+  @apply mt-4 rounded-md bg-blue-400 p-1 font-thin shadow-sm hover:cursor-pointer hover:bg-blue-500;
+}
+
+#loginButton {
+  @apply border border-blue-400 bg-transparent hover:bg-blue-400 !important;
+}
