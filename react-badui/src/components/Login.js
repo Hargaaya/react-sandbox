@@ -1,4 +1,5 @@
 import React from "react";
+import Captcha from "./Captcha";
 
 const Login = () => {
   return (
@@ -19,6 +20,8 @@ const Login = () => {
           data-lpignore="true"
         />
         <label>●●●●●●●●</label>
+
+        <Captcha></Captcha>
 
         <input type="reset" type="submit" value="Clear form" id="clearButton" />
         <input type="button" value="Log in" id="loginButton" />
