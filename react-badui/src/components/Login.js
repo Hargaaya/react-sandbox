@@ -3,13 +3,17 @@ import Captcha from "./Captcha";
 
 const Login = () => {
   return (
-    <div className="container mx-auto max-w-md rounded-sm bg-slate-200 p-3 shadow-md">
-      <form className="flex flex-col" id="login">
+    <div className="container mx-auto mt-10 max-w-md rounded-sm bg-white p-3 shadow-md">
+      <form
+        className="flex flex-col"
+        id="login"
+        onSubmit={(e) => e.preventDefault()}
+      >
         <input
           type="text"
           placeholder="Username"
           id="username"
-          data-lpignore="true"
+          data-lpignore="true" // hides lastpass icon
         />
         <label></label>
 
@@ -17,7 +21,7 @@ const Login = () => {
           type="password"
           placeholder="Password"
           id="password"
-          data-lpignore="true"
+          data-lpignore="true" // hides lastpass icon
         />
         <label></label>
 
