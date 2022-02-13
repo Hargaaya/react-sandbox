@@ -27,14 +27,18 @@ code {
 }
 
 #login label {
-  @apply h-9 select-none rounded-md border-black bg-slate-200 p-2 shadow-inner hover:cursor-text;
+  @apply mx-4 h-9 select-none rounded-md border-black bg-slate-200 p-2 shadow-inner hover:cursor-text;
 }
 
 #clearButton,
 #loginButton {
-  @apply mt-4 rounded-md bg-blue-400 p-1 shadow-sm hover:cursor-pointer hover:bg-blue-500;
+  @apply w-32 rounded-md bg-blue-500 p-1 font-medium shadow-md hover:cursor-pointer hover:bg-blue-600;
 }
 
 #loginButton {
-  @apply border border-blue-400 bg-transparent hover:bg-blue-400 !important;
+  @apply border-4 border-blue-500 bg-transparent hover:bg-blue-500 !important;
+}
+
+#clearButton {
+  @apply text-white;
 }

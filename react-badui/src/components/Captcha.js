@@ -4,12 +4,11 @@ import CaptchaTask from "./CaptchaTask";
 
 const Captcha = () => {
   const [checked, setChecked] = React.useState(false);
-  const [CaptchaComplete, setCaptchaComplete] = React.useState(false);
+  const [captchaComplete, setCaptchaComplete] = React.useState(false);
 
   React.useEffect(() => {
-    const target = document.getElementById("completedCaptcha");
-    if (CaptchaComplete && !target.checked) setCaptchaComplete(false);
-  }, [CaptchaComplete]);
+    if (checked && captchaComplete) setCaptchaComplete(false);
+  }, [checked]);
 
   return (
     <div>
@@ -24,9 +23,9 @@ const Captcha = () => {
           <p className="select-none pl-2 text-lg font-medium text-slate-600">
             I'm a robot
           </p>
-          {checked && !CaptchaComplete ? (
+          {checked && !captchaComplete ? (
             <CaptchaTask
-              taskComplete={CaptchaComplete}
+              taskComplete={captchaComplete}
               setTaskComplete={setCaptchaComplete}
             />
           ) : (

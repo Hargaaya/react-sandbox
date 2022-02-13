@@ -8,6 +8,8 @@ const CaptchaTask = ({ taskComplete, setTaskComplete }) => {
     setTimeout(() => {
       setShowNumbers(!showNumbers);
     }, 3000);
+    // Behöver unmounts, men hur? BIG HMMMM
+    return "";
   }, []);
 
   React.useEffect(() => {

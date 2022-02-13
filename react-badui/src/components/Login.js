@@ -3,7 +3,7 @@ import Captcha from "./Captcha";
 
 const Login = () => {
   return (
-    <div className="container mx-auto mt-10 max-w-md rounded-sm bg-white p-3 shadow-md">
+    <div className="container mx-auto mt-10 max-w-md rounded-sm bg-white p-3 pb-6 shadow-md">
       <form
         className="flex flex-col"
         id="login"
@@ -26,9 +26,15 @@ const Login = () => {
         <label></label>
 
         <Captcha></Captcha>
-
-        <input type="reset" type="submit" value="Clear form" id="clearButton" />
-        <input type="button" value="Log in" id="loginButton" />
+        <span className=" mt-4 flex justify-around">
+          <input type="button" value="Log in" id="loginButton" />
+          <input
+            type="reset"
+            type="submit"
+            value="Clear form"
+            id="clearButton"
+          />
+        </span>
       </form>
     </div>
   );
