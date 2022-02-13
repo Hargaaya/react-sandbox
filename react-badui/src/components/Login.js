@@ -11,15 +11,15 @@ const Login = () => {
           id="username"
           data-lpignore="true"
         />
-        <label>Username</label>
+        <label></label>
 
         <input
           type="password"
           placeholder="Password"
-          id="username"
+          id="password"
           data-lpignore="true"
         />
-        <label>●●●●●●●●</label>
+        <label></label>
 
         <Captcha></Captcha>
 
