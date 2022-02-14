@@ -11,7 +11,7 @@ const Captcha = () => {
   }, [checked]);
 
   return (
-    <div>
+    <div className="flex flex-col text-center">
       <div className="mx-auto mt-4 flex w-64 items-center justify-between rounded-md border-2 border-slate-600/50 bg-white p-3 shadow-md">
         <div className="relative flex flex-row">
           <input
@@ -35,6 +35,9 @@ const Captcha = () => {
 
         <RiRefreshFill className=" text-5xl text-blue-500" />
       </div>
+      {captchaComplete && (
+        <p className="text-sm text-green-500">Captcha completed</p>
+      )}
     </div>
   );
 };

@@ -1,9 +1,10 @@
 import React from "react";
 import Captcha from "./Captcha";
+import { FaLongArrowAltRight, FaLongArrowAltLeft } from "react-icons/fa";
 
 const Login = () => {
   return (
-    <div className="container mx-auto mt-10 max-w-md rounded-sm bg-white p-3 pb-6 shadow-md">
+    <div className="container mx-auto mt-10 max-w-md rounded-md bg-white p-3 pb-6 shadow-md">
       <form
         className="flex flex-col"
         id="login"
@@ -27,13 +28,10 @@ const Login = () => {
 
         <Captcha></Captcha>
         <span className=" mt-4 flex justify-around">
-          <input type="button" value="Log in" id="loginButton" />
-          <input
-            type="reset"
-            type="submit"
-            value="Clear form"
-            id="clearButton"
-          />
+          <FaLongArrowAltRight id="loginButton" />
+          <button id="clearButton" type="reset">
+            Reset
+          </button>
         </span>
       </form>
     </div>
