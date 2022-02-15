@@ -3,9 +3,9 @@ import { useState } from "react";
 
 const Header = () => {
   const [views, setViews] = useState([
-    { text: "today", route: "now" },
-    { text: "5 days", route: "week" },
-    // { text: "Tomorrow", route: "tomorrow" },
+    { text: "Now", route: "now" },
+    { text: "Today", route: "today" },
+    { text: "This Week", route: "week" },
   ]);
 
   return (

@@ -1,34 +1,41 @@
 import Header from "./components/Header";
 import Windows from "./components/Windows";
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 
 function App() {
-  const [daily, setDaily] = useState();
+  const [weatherData, setWeatherData] = useState();
   const key = "80a21c47a4285bedd4a78e3deec371e2";
 
-  function location() {
-    return new Promise((resolve, reject) => {
-      navigator.geolocation.getCurrentPosition(resolve, reject);
+  function getLocation() {
+    return new Promise((resolve) => {
+      navigator.geolocation.getCurrentPosition(resolve);
     });
   }
 
-  function fetchWeather() {
-    return location().then((pos) => {
-      let lat = Math.round(pos.coords.latitude * 100) / 100;
-      let lon = Math.round(pos.coords.longitude * 100) / 100;
+  function fetchWeather(pos) {
+    const url = new URL("https://api.openweathermap.org/data/2.5/onecall");
+    url.searchParams.set("lat", pos.coords.latitude);
+    url.searchParams.set("lon", pos.coords.longitude);
+    url.searchParams.set("appid", key);
 
-      return fetch(
-        `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&appid=5aea0ff31a0b778fdf225480e5f7002f`
-      )
-        .then((res) => res.json())
-        .then((data) => {
-          return data;
-        });
+    return fetch(url).then((res) => res.json());
+  }
+
+  function getWeather() {
+    getLocation().then((pos) => {
+      console.log("fetching");
+      fetchWeather(pos).then((data) => {
+        setWeatherData(data);
+      });
     });
   }
+
+  React.useEffect(() => {
+    getWeather();
+  }, []);
 
   return (
-    <div>
+    <div className="mx-auto max-w-4xl shadow-md rounded-xl h-[800px] bg-gray-500 p-3 mt-10">
       <Header></Header>
       {/* <Windows weekWeather={daily}></Windows> */}
     </div>
