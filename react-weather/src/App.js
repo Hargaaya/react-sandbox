@@ -4,7 +4,8 @@ import Outside from "./components/Outside";
 import React, { useState } from "react";
 
 function App() {
-  const [weatherData, setWeatherData] = useState();
+  const [weatherData, setWeatherData] = useState(null);
+  const [ready, setReady] = useState(false);
   const key = "80a21c47a4285bedd4a78e3deec371e2";
 
   function getLocation() {
@@ -29,6 +30,7 @@ function App() {
         console.log("fetching");
         fetchWeather(pos).then((data) => {
           setWeatherData(data);
+          setReady(true);
         });
       });
     };
@@ -39,8 +41,8 @@ function App() {
   return (
     <div id="container">
       <Header></Header>
-      {/* <Windows weatherData={weatherData}></Windows> */}
-      <Outside weatherData={weatherData}></Outside>
+      {/* ready && <Windows weatherData={weatherData}></Windows> */}
+      {ready && <Outside weatherData={weatherData}></Outside>}
     </div>
   );
 }
