@@ -1,6 +1,6 @@
 import Header from "./components/Header";
 import Windows from "./components/Windows";
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 
 function App() {
   const [weatherData, setWeatherData] = useState();
@@ -17,27 +17,28 @@ function App() {
     url.searchParams.set("lat", pos.coords.latitude);
     url.searchParams.set("lon", pos.coords.longitude);
     url.searchParams.set("appid", key);
+    url.searchParams.set("exclude", "minutely");
 
     return fetch(url).then((res) => res.json());
   }
 
-  function getWeather() {
-    getLocation().then((pos) => {
-      console.log("fetching");
-      fetchWeather(pos).then((data) => {
-        setWeatherData(data);
-      });
-    });
-  }
-
   React.useEffect(() => {
+    const getWeather = () => {
+      getLocation().then((pos) => {
+        console.log("fetching");
+        fetchWeather(pos).then((data) => {
+          setWeatherData(data);
+        });
+      });
+    };
+
     getWeather();
   }, []);
 
   return (
-    <div className="mx-auto max-w-4xl shadow-md rounded-xl h-[800px] bg-gray-500 p-3 mt-10">
+    <div id="container">
       <Header></Header>
-      {/* <Windows weekWeather={daily}></Windows> */}
+      <Windows weatherData={weatherData}></Windows>
     </div>
   );
 }

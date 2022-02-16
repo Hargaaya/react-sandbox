@@ -1,12 +1,12 @@
 import Window from "./Window";
-import { useState } from "react";
 
-const Windows = ({ weekWeather }) => {
+const Windows = ({ weatherData }) => {
   return (
     <div className="container mx-auto mt-10 flex flex-row flex-wrap justify-center">
-      {weekWeather.map((day) => (
-        <Window weather={day}></Window>
-      ))}
+      {weatherData !== undefined &&
+        weatherData.daily.map(
+          (item, i) => i < 5 && <Window key={i} data={item}></Window>
+        )}
     </div>
   );
 };
