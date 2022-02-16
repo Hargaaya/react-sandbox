@@ -1,5 +1,6 @@
 import Header from "./components/Header";
 import Windows from "./components/Windows";
+import Outside from "./components/Outside";
 import React, { useState } from "react";
 
 function App() {
@@ -38,7 +39,8 @@ function App() {
   return (
     <div id="container">
       <Header></Header>
-      <Windows weatherData={weatherData}></Windows>
+      {/* <Windows weatherData={weatherData}></Windows> */}
+      <Outside weatherData={weatherData}></Outside>
     </div>
   );
 }

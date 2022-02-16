@@ -38,3 +38,11 @@ code {
 :last-child {
   @apply mb-2;
 }
+
+#outside {
+  @apply flex flex-col items-center p-10 max-w-xl mx-auto 
+  text-white font-light text-4xl text-center select-none;
+}
+#outside img {
+  @apply rounded-full w-96 h-96 bg-sky-500/50 p-3 shadow-lg mb-10;
+}
