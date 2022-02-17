@@ -1,11 +1,18 @@
 import Window from "./Window";
 
-const Windows = ({ weatherData }) => {
+const Windows = ({ weatherData, display }) => {
   return (
-    <div className="container mx-auto mt-10 flex flex-row flex-wrap justify-center">
-      {weatherData.daily.map(
-        (item, i) => i < 5 && <Window key={i} data={item}></Window>
-      )}
+    <div id="windows">
+      {display.daily &&
+        weatherData.daily.map(
+          (item, i) =>
+            i < 5 && <Window key={i} data={item} type={"daily"}></Window>
+        )}
+      {display.hourly &&
+        weatherData.hourly.map(
+          (item, i) =>
+            i < 5 && <Window key={i} data={item} type={"hourly"}></Window>
+        )}
     </div>
   );
 };

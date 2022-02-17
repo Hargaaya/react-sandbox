@@ -1,10 +1,24 @@
 import React from "react";
 
-const Window = ({ data }) => {
+const Window = ({ data, type }) => {
+  let temp = 0;
+  let date = 0;
+
+  type === "daily"
+    ? (temp = Math.floor(data.temp.day - 273))
+    : (temp = Math.floor(data.temp - 273));
+
+  type === "daily"
+    ? (date = new Date(data.dt * 1000).toLocaleDateString())
+    : (date = new Date(data.dt * 1000).toLocaleTimeString([], {
+        hour: "2-digit",
+        minute: "2-digit",
+      }));
+
   return (
     <div id="window">
-      <h1>{new Date(data.dt * 1000).toLocaleDateString()}</h1>
-      <h2>{Math.floor(data.temp.day - 273) + " C"}</h2>
+      <h1>{date}</h1>
+      <h2>{temp + " Grader"}</h2>
       <img
         src={`http://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`}
         alt={data.weather[0].description}
