@@ -2,9 +2,9 @@ import HeaderLink from "./HeaderLink";
 
 const Header = () => {
   const views = [
-    { text: "Just nu", route: "now" },
-    { text: "Idag", route: "today" },
-    { text: "Denna veckan", route: "week" },
+    { text: "Just nu", route: "/" },
+    { text: "Idag", route: "/today" },
+    { text: "Denna veckan", route: "/week" },
   ];
 
   return (

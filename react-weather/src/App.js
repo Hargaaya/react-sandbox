@@ -2,12 +2,12 @@ import Header from "./components/Header";
 import Windows from "./components/Windows";
 import Outside from "./components/Outside";
 import React, { useState } from "react";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 function App() {
   const [weatherData, setWeatherData] = useState(null);
   const [ready, setReady] = useState(false);
   const key = "80a21c47a4285bedd4a78e3deec371e2";
-  const [mode, setMode] = useState({ daily: true, hourly: false });
 
   function getLocation() {
     return new Promise((resolve) => {
@@ -41,11 +41,22 @@ function App() {
   }, []);
 
   return (
-    <div id="container">
-      <Header></Header>
-      {ready && <Windows weatherData={weatherData} display={mode}></Windows>}
-      {/* {ready && <Outside weatherData={weatherData}></Outside>} */}
-    </div>
+    <BrowserRouter>
+      <div id="container">
+        <Header />
+        <Routes>
+          <Route index element={<Outside weatherData={weatherData} />} />
+          <Route
+            path="/today"
+            element={<Windows weatherData={weatherData} display={"hourly"} />}
+          />
+          <Route
+            path="/week"
+            element={<Windows weatherData={weatherData} display={"daily"} />}
+          />
+        </Routes>
+      </div>
+    </BrowserRouter>
   );
 }
 

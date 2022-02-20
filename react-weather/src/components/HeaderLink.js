@@ -1,7 +1,9 @@
+import { Link } from "react-router-dom";
+
 const HeaderLink = ({ item }) => {
   return (
     <li>
-      <a href={`/${item.route}`}>{item.text}</a>
+      <Link to={item.route}>{item.text}</Link>
     </li>
   );
 };
