@@ -45,14 +45,21 @@ function App() {
       <div id="container">
         <Header />
         <Routes>
-          <Route index element={<Outside weatherData={weatherData} />} />
+          <Route
+            index
+            element={ready && <Outside weatherData={weatherData} />}
+          />
           <Route
             path="/today"
-            element={<Windows weatherData={weatherData} display={"hourly"} />}
+            element={
+              ready && <Windows weatherData={weatherData} display={"hourly"} />
+            }
           />
           <Route
             path="/week"
-            element={<Windows weatherData={weatherData} display={"daily"} />}
+            element={
+              ready && <Windows weatherData={weatherData} display={"daily"} />
+            }
           />
         </Routes>
       </div>

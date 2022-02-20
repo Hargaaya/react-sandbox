@@ -3,26 +3,15 @@
 @tailwind utilities;
 
 body {
-  @apply bg-sky-100;
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
+  @apply bg-sky-100 text-white select-none;
 }
 
 #container {
-  @apply mx-auto max-w-4xl shadow-md rounded-xl h-[896px] bg-sky-400 p-5 mt-10;
+  @apply mx-auto max-w-5xl shadow-md rounded-xl h-[896px] bg-sky-400 p-5 mt-6;
 }
 
 #header {
-  @apply mx-auto max-w-xl flex justify-around text-white text-lg font-medium;
+  @apply mx-auto max-w-xl flex justify-around  text-lg font-medium;
 }
 
 #header li a {
@@ -35,7 +24,7 @@ code {
 
 #window {
   @apply basis-1/6 rounded-md shadow-md overflow-hidden m-2 flex flex-col 
-  text-lg justify-center text-center text-white font-medium bg-sky-500/40;
+  text-lg justify-center text-center  font-medium bg-sky-500/40;
 }
 
 #window h1 {
@@ -48,10 +37,12 @@ code {
 }
 
 #outside {
-  @apply flex flex-col items-center p-10 max-w-xl mx-auto 
-  text-white font-light text-4xl text-center select-none;
+  @apply flex flex-col items-center justify-center mx-auto 
+ font-light text-4xl pb-32 w-full h-full;
 }
 
-#outside img {
+#image {
   @apply rounded-full w-96 h-96 shadow-lg mb-10;
+  background-size: cover;
+  background-position: center;
 }
