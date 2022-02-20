@@ -1,7 +1,11 @@
 import React from "react";
+import FastAverageColor from "fast-average-color";
 
 const Outside = ({ weatherData }) => {
   const main = weatherData.current.weather[0].main;
+  const fac = new FastAverageColor();
+  const container = document.getElementById("container");
+
   const weatherCases = [
     {
       type: "Snow",
@@ -36,6 +40,15 @@ const Outside = ({ weatherData }) => {
   ];
 
   const currentCase = weatherCases.filter((item) => item.type === main)[0];
+
+  React.useEffect(() => {
+    fac
+      .getColorAsync(currentCase?.image)
+      .then((color) => {
+        container.style.backgroundColor = color.hex;
+      })
+      .catch((e) => alert(e));
+  }, [currentCase]);
 
   return (
     <div id="outside">

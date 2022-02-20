@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 body {
-  @apply bg-sky-100 text-white select-none;
+  @apply text-white select-none;
 }
 
 #container {
@@ -11,7 +11,7 @@ body {
 }
 
 #header {
-  @apply mx-auto max-w-xl flex justify-around  text-lg font-medium;
+  @apply mx-auto max-w-xl flex justify-around items-center text-lg font-medium bg-gray-200/20 rounded-full w-full p-2 shadow-inner;
 }
 
 #header li a {
@@ -24,16 +24,15 @@ body {
 
 #window {
   @apply basis-1/6 rounded-md shadow-md overflow-hidden m-2 flex flex-col 
-  text-lg justify-center text-center  font-medium bg-sky-500/40;
+  text-lg justify-center text-center font-medium bg-gray-200/10;
 }
 
 #window h1 {
-  @apply bg-sky-600 pt-2 p-1;
+  @apply bg-gray-200/40 p-2 text-xl;
 }
 
-#window :first-child,
-:last-child {
-  @apply mb-2;
+#window p:last-child {
+  @apply pb-2 font-thin text-xl;
 }
 
 #outside {

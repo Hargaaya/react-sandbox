@@ -22,6 +22,7 @@ function App() {
     url.searchParams.set("appid", key);
     url.searchParams.set("exclude", "minutely");
     url.searchParams.set("lang", "se");
+    url.searchParams.set("units", "metric");
 
     return fetch(url).then((res) => res.json());
   }

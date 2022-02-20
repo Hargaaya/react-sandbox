@@ -5,8 +5,8 @@ const Window = ({ data, type }) => {
   let date = 0;
 
   type === "daily"
-    ? (temp = Math.floor(data.temp.day - 273))
-    : (temp = Math.floor(data.temp - 273));
+    ? (temp = Math.floor(data.temp.day))
+    : (temp = Math.floor(data.temp));
 
   type === "daily"
     ? (date = new Date(data.dt * 1000).toLocaleDateString())
@@ -18,7 +18,7 @@ const Window = ({ data, type }) => {
   return (
     <div id="window">
       <h1>{date}</h1>
-      <h2>{temp + " Grader"}</h2>
+      <h2>{temp + "°"}</h2>
       <img
         src={`http://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`}
         alt={data.weather[0].description}
