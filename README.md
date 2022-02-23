@@ -1,1 +1,1 @@
-# react-sandbox
+# General react sandbox
