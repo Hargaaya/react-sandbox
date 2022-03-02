@@ -7,7 +7,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 function App() {
   const [weatherData, setWeatherData] = useState(null);
   const [ready, setReady] = useState(false);
-  const key = "80a21c47a4285bedd4a78e3deec371e2";
+  const key = "";
 
   function getLocation() {
     return new Promise((resolve) => {
