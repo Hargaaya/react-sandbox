@@ -1,11 +1,148 @@
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans",
-    "Helvetica Neue", sans-serif;
+  font-family: "Ubuntu", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: #f7f5ed;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
+body * {
+  font-family: "Ubuntu", sans-serif;
+}
+
+.App {
+  background-color: #eedf09;
+  color: #1e1e1e;
+  height: 1200px;
+  width: 90vw;
+  max-width: 1000px;
+  margin: 20px auto 0 auto;
+  border-radius: 20px;
+}
+
+nav {
+  width: 100%;
+  height: 10%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  font-weight: bold;
+  font-size: 24px;
+  text-decoration: none;
+  color: black;
+}
+
+nav *:link {
+  text-decoration: none;
+}
+
+nav *:visited {
+  color: black;
+  text-decoration: none;
+}
+
+.Main {
+  height: 80%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.Home {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.Signup form {
+  background-color: rgb(237, 241, 245);
+  height: 100%;
+  padding: 20px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.Signup form * {
+  margin-bottom: 18px;
+}
+
+.Signup input {
+  padding: 10px;
+  outline: none;
+  border: none;
+  border-radius: 10px;
+  box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.1);
+}
+
+.Signup button {
+  background-color: rgb(242, 253, 255);
+  border: none;
+  margin-bottom: 0;
+  border-radius: 7px;
+  padding: 10px 20px;
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+  font-weight: 700;
+}
+
+.Signup button:hover {
+  box-shadow: 0px 1px 15px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+}
+
+.Unsubscribe button {
+  background-color: rgba(241, 63, 32, 0.795);
+  border: none;
+  margin-bottom: 0;
+  border-radius: 7px;
+  padding: 10px 20px;
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+  font-weight: 700;
+}
+
+.Unsubscribe button:hover {
+  box-shadow: 0px 1px 15px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+}
+
+.Popup {
+  background-color: white;
+  height: fit-content;
+  width: 400px;
+  z-index: 10;
+  position: fixed;
+  margin: 0 auto;
+  padding: 5px;
+  top: 550px;
+  left: 0;
+  right: 0;
+  box-shadow: #1e1e1e 0 0 80px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  user-select: none;
+}
+
+.Popup h3,
+.Popup p {
+  text-align: center;
+}
+
+.Popup p {
+  margin: 20px;
+}
+
+.Popup button {
+  background: greenyellow;
+}
+
+.Popup button:hover {
+  background-color: rgb(137, 202, 39);
 }
