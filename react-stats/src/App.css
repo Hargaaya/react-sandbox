@@ -1,3 +1,17 @@
 .App {
   text-align: center;
 }
+
+.StatsBoxContainer {
+  padding: 10px;
+  display: grid;
+  grid-gap: 16px;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+}
+
+.StatsBox {
+  background-color: rgba(139, 136, 136, 0.726);
+  width: full;
+  height: 150px;
+  border-radius: 10px;
+}
