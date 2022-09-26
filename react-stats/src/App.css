@@ -1,17 +1,229 @@
+:root {
+  --dark-bg: rgb(44, 44, 44);
+  --grey-bg: rgba(226, 226, 226, 0.726);
+  --gold-bg: #f8ca56;
+}
+
 .App {
   text-align: center;
 }
 
-.StatsBoxContainer {
+.App span {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.stats-store {
+  width: 36px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.stats-store p {
+  padding: 4px;
+  margin: 0;
+  border-radius: 100px;
+  font-weight: 500;
+}
+
+.search {
+  box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px inset, rgba(0, 0, 0, 0.24) 0px 1px 2px inset;
+  background-color: var(--grey-bg);
+  width: 390px;
+  height: 40px;
+  margin: 0 auto 10px auto;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.search input {
+  border: none;
+  background-color: transparent;
+  width: 80%;
+  height: 80%;
+  font-weight: bold;
+}
+
+.search .search-icon {
+  width: 10%;
+}
+
+.statsbox-container {
+  max-width: 1100px;
+  margin: 0 auto;
   padding: 10px;
   display: grid;
   grid-gap: 16px;
-  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
 }
 
-.StatsBox {
-  background-color: rgba(139, 136, 136, 0.726);
+.statsbox {
+  background-color: var(--grey-bg);
   width: full;
-  height: 150px;
+  height: 180px;
   border-radius: 10px;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 16px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
+}
+
+.statsbox-top {
+  background-color: var(--dark-bg);
+  border-radius: 10px 10px 0 0;
+  height: 60%;
+  width: 100%;
+}
+
+.statsbox-bottom {
+  max-height: 40%;
+  padding: 10px;
+  text-align: left;
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+}
+
+.statsbox-bottom p {
+  padding: 2px;
+  margin: 0;
+  font-size: 0.8em;
+  font-weight: 500;
+}
+
+.statsbox-bottom p:nth-child(1) {
+  grid-area: 1 / 1 / 1 / 7;
+  font-size: 1em;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.statsbox-bottom p:nth-child(2) {
+  grid-area: 2 / 1 / 2 / 2;
+}
+
+.statsbox-bottom p:nth-child(3) {
+  grid-area: 2 / 2 / 2 / 2;
+  padding-right: 10px;
+  text-align: right;
+}
+
+.statsbox-add,
+.statsbox-visit {
+  box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
+  background-color: var(--gold-bg);
+  grid-area: 2 / 6 / 2 / 6;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 16px;
+  width: 16px;
+  padding: 5px;
+  border-radius: 100px;
+  box-shadow: none;
+}
+
+.statsbox-visit {
+  grid-area: 2 / 7 / 2 / 7;
+}
+
+.statsbox-add:hover,
+.statsbox-visit:hover {
+  cursor: pointer;
+}
+
+.statsbox-navigation {
+  box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px inset, rgba(0, 0, 0, 0.24) 0px 1px 2px inset;
+  background-color: var(--grey-bg);
+  border-radius: 100px;
+  width: max-content;
+  margin: 10px auto;
+  padding: 4px;
+  display: flex;
+  align-items: center;
+}
+
+.statsbox-navigation .navigation-button,
+.statsview-back {
+  box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
+  background-color: var(--gold-bg);
+  padding: 10px;
+  border-radius: 100px;
+}
+
+.statsbox-navigation .navigation-button:hover,
+.statsview-back:hover {
+  cursor: pointer;
+  box-shadow: none;
+}
+
+.statsbox-navigation input {
+  /* box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px; */
+  background-color: transparent;
+  border-radius: 100px;
+  border: none;
+  width: 40px;
+  height: 28px;
+  margin: 0 4px;
+  padding: 4px 8px;
+  text-align: center;
+  font-weight: bold;
+}
+
+.statsview-container {
+  background-color: var(--grey-bg);
+  border-radius: 10px;
+  width: 90vw;
+  max-width: 1100px;
+  margin: 20px auto;
+  padding: 10px;
+}
+
+.statsview-back {
+  height: 16px;
+  width: 16px;
+  padding: 20px;
+  margin: 10px auto;
+}
+
+.statsview-container h2 {
+  text-align: center;
+}
+
+.statsview-container ul {
+  list-style-type: none;
+  width: 300px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.statsview-container li {
+  margin: 5px 20px;
+}
+
+.statsview-container h3 {
+  border-bottom: 1px solid black;
+  user-select: none;
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 16px;
+  margin: 0;
+}
+.statsview-container p {
+  font-weight: 500;
+  font-size: 14px;
+  margin: 0;
+}
+
+input::placeholder {
+  font-weight: bold;
+  color: black;
+}
+
+input:focus {
+  outline: none;
 }
